@@ -4,16 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo - Nabila</title>
+    <title>Todo - Beellaa</title>
 
     <!-- CSS External -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css\styles.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header>
+        <h1 class="text-3xl font-bold">Beellaaa Todo App</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Form Todo -->
+         <section>
+            <form id="todo-form">
+                <input type="text" class="border p-[8px]" id="todo-input" placeholder="Enter you todo..." required>
+                <input type="date" class="border p-[8px]" id="todo-date" required>
+                <button type="button" onclick="addTodo()" class="bg-blue-500 rounded text-white p-[8px]">Add Todo</button>
+            </form>
+         </section>
+
+         <!-- Action Buttons -->
+         <section class="mt-4 flex gap-2">
+            <button class="bg-red-500 text-white p-2 rounded">Delete All</button>
+            <button class="bg-green-500 text-white p-2 rounded">Filter</button>
+         </section>
+
+         <!-- Todo List -->
+         <section>
+            <ul id="todo-list" class="mt-4">
+                <!-- Todo items will be dynamically added here -->
+                <p class="text-center text-gray-500">No todos added yet. Add one above!</p>
+            </ul>
+         </section>
+    </main>
+
+    <!-- Footer -->
+     <footer>
+        <p>&copy; 2024 Beellaa Todo App</p>
+
+     </footer>
 
     <!-- JavaScript -->
-     <script src="script.js"></script>
+     <script src="js/script.js"></script>
 </body>
 
 </html>
