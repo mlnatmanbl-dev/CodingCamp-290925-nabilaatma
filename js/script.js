@@ -140,7 +140,7 @@ function deleteTodo(index) {
 function deleteAllTodo() {
     if (confirm('Are you sure you want to delete ALL tasks?')) {
         // Clear the todos array
-        todos =;
+        todos = [];
     
         // Clear localStorage (CRITICAL ADDITION: Inst. 1 Implication)
         saveTodo();
@@ -171,12 +171,10 @@ function filterTodo() {
 // Validate input fields (Inst. 2 Requirement)
 function validateInput(todo, date) {
     // Check if inputs are empty
-    if (todo === '' |
-
-| date === '') {
-        // show an alert if validation fails (Minimum requirement met)
-        alert("Please fill in all fields (Task and Due Date)");
-        return false;
-    }
+if (todo === '' || date === '') {
+    // show an alert if validation fails (Minimum requirement met)
+    alert("Please fill in all fields (Task and Due Date)");
+    return false;
+}
     return true;
 }
