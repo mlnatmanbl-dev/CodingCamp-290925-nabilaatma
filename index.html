@@ -7,7 +7,7 @@
     <title>Todo - Beellaa</title>
 
     <!-- CSS External -->
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="css\style.css">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -16,26 +16,45 @@
 <body class="bg-gray-100">
 
     <!-- Header -->
-    <header>
-        <h1 class="text-3xl font-bold">Beellaaa Todo App</h1>
+    <header class="p-4 bg-white shadow">
+        <h1 class="text-3xl font-bold text-center text-blue-600">Beellaaa Todo App</h1>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="container mx-auto p-4 max-w-4xl">
         <!-- Form Todo -->
-         <section>
-            <form id="todo-form">
-                <input type="text" class="border p-[8px]" id="todo-input" placeholder="Enter you todo..." required>
-                <input type="date" class="border p-[8px]" id="todo-date" required>
-                <button type="button" onclick="addTodo()" class="bg-blue-500 rounded text-white p-[8px]">Add Todo</button>
+         <section class="mb-6 bg-white p-6 rounded shadow-md">
+            <form id="todo-form" class="flex gap-2">
+                <input type="text" class="border p-2 flex-grow rounded focus:ring-blue-500 focus:border-blue-500" id="todo-input" placeholder="Enter your todo..." required>
+                <input type="date" class="border p-2 rounded" id="todo-date" required>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 rounded text-white p-2 transition duration-150">Add Todo</button>
             </form>
          </section>
 
-         <!-- Action Buttons -->
-         <section class="16px flex gap-2">
-            <button class="bg-red-500 text-white p-2 rounded" onclick="deleteAllTodo()">Delete All</button>
-            <button class="bg-green-500 text-white p-2 rounded">Filter</button>
+         <section class="mb-4 flex gap-2 justify-end">
+            <select id="filter-status" onchange="filterTodo()" class="border p-2 rounded">
+                <option value="all">Filter: All</option>
+                <option value="completed">Filter: Completed</option>
+                <option value="pending">Filter: Pending</option>
+            </select>
+            <button class="bg-red-500 hover:bg-red-600 text-white p-2 rounded transition duration-150" onclick="deleteAllTodo()">Delete All</button>
          </section>
+
+         <section class="bg-white p-6 rounded shadow-md overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TASK</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DUE DATE</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">STATUS</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-list" class="bg-white divide-y divide-gray-200">
+                    </tbody>
+            </table>
+            <p id="no-task-message" class="text-center text-gray-500 py-4 hidden">No task found</p>
+        </section>
 
          <!-- Todo List -->
          <section>
